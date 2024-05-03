@@ -1,0 +1,17 @@
+syntax = "proto3";
+package gRPC_youtube;
+
+option go_package = "google.golang.org/grpc/examples/helloworld/gRPC_youtube";
+
+service YoutubeServer {
+    rpc GetVideoTags (Request) returns (stream Response){};
+}
+
+message Request {
+    string link = 1;
+}
+
+message Response {
+    string tags = 1;
+    bool status = 2;
+}
